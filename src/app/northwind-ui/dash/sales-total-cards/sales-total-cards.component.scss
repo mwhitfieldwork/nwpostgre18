@@ -1,0 +1,114 @@
+@use '../../../shared/mixins/color-palette.scss' as *;
+
+.dashboard-cards {
+  margin-bottom: 1.5rem;
+
+  .col {
+    display: flex;
+  }
+
+  .dashboard-card{
+    margin:10px;
+    padding:15px;
+  }
+
+  div {
+    border-radius: $card-radius;
+    width: 100%;
+    display: flex;
+    padding:unset;
+    justify-content: space-between;
+    /*box-shadow: 0 4px 10px rgba(38, 43, 69, 0.06);*/
+    transition: transform $transition-speed ease, box-shadow $transition-speed ease;
+
+  }
+
+  article.d-block {
+    flex: 1;
+  }
+
+  h3 {
+    margin: 0 0 0.35rem 0 !important;
+    font-family:var(--neptune-typography-family-roboto, Roboto);
+    font-size: 0.75rem !important;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  h4 {
+    margin: 0 0 0.65rem 0 !important;
+    font-family:var(--neptune-typography-family-roboto, Roboto);;
+    font-size: $font-size-card-title !important;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  p {
+    margin: 0 !important;
+    font-family: var(--neptune-typography-family-roboto, Roboto);;
+    font-size: 2rem !important;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+
+  .dashboard-card-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-self:center;
+    align-items: center;
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+
+  // 1. Total Orders Card (Primary Indigo)
+  div.total-orders:first-child {
+    background: #fff;
+
+    h3 { color: $color-ink-soft !important; }
+    h4 { color: $color-primary-dark !important; }
+    p  { color: $color-primary !important; }
+    svg { color: $color-primary !important; }
+    .total-icon { background-color: #edf3f7 }
+  }
+
+  // 2. Mile Total Card (Amber)
+  div.total-orders:nth-child(2) {
+    background: #fff;
+
+    h3 { color: $color-ink-soft !important; }
+    h4 { color: $color-amber-dark !important; }
+    p  { color: #b45309 !important; }
+    svg { color: $color-amber !important; }
+    .miles-icon { background-color:rgba(236, 216, 188, .4);}
+  }
+
+  // 3. Backpack Total Card (Teal)
+  div.total-orders:nth-child(3) {
+    background: #fff;
+
+    h3 { color: $color-ink-soft !important; }
+    h4 { color: $color-teal-dark !important; }
+    p  { color: #0f766e !important; }
+    svg { color: $color-teal !important; }
+    .backpack-icon { background-color: rgba(161, 201, 190, .2);}
+  }
+
+  // 4. Metric Averages Card (Violet)
+  div.total-orders:last-child {
+    background: #fff;
+
+    h3 { color: $color-ink-soft !important; }
+    h4 { color: $color-violet-dark !important; }
+    p  { color: #9333ea !important; }
+    svg { color: $color-violet !important; }
+    .metric-icon { background-color:rgba(192, 171, 205, .2) }
+  }
+}

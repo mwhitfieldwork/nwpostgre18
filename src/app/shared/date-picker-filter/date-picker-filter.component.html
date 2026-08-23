@@ -1,0 +1,26 @@
+<div class="date-selection">
+    <form [formGroup]="datePickerForm" class="date-picker-form">
+
+    <!-- Visible button that opens the datepicker -->
+    <button mat-raised-button class="bootstrap-primary-btn" (click)="rangePicker.open()">
+        Select Date Range
+    </button>
+
+    <!-- Hidden date-range-input (still binds to your form) -->
+    <mat-date-range-input
+        [rangePicker]="rangePicker"
+        [min]="minDate"
+        [max]="maxDate"
+        class="hidden-range-input">
+
+        <input matStartDate formControlName="beginningDate">
+        <input matEndDate formControlName="endingDate">
+
+    </mat-date-range-input>
+
+    <!-- The actual datepicker -->
+    <mat-date-range-picker #rangePicker></mat-date-range-picker>
+
+    </form>
+</div>
+

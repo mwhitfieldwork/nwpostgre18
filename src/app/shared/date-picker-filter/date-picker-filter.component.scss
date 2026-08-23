@@ -1,0 +1,16 @@
+.hidden-range-input {
+    opacity: 0;
+    position: absolute;
+}
+
+.date-selection {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+.date-picker-form{
+    position: relative;
+}

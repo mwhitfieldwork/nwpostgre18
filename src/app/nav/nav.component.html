@@ -1,0 +1,15 @@
+@if(user){
+<section id="navigation" >
+    <nav class="navbar">
+        <div class="user-icon">
+            <app-users [user]="getVisitor()" />
+        </div>
+        <ul>
+            <li>
+                <span class="user">Welcome, {{user.userName}}</span>          
+                <a href="#" (click)="Logout()">Logout</a>
+            </li>
+        </ul>
+    </nav>
+</section>
+}

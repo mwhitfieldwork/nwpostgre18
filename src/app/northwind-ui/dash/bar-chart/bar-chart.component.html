@@ -1,0 +1,26 @@
+<div class="chart-container">
+  <div class="kpi-container">
+    <div class="kpi-card">
+      <h2>5,689</h2>
+      <p>New Orders</p>
+    </div>
+  
+    <div class="kpi-card">
+      <h2>32,568</h2>
+      <p>This Month</p>
+    </div>
+  
+    <div class="kpi-card">
+      <h2>$23,464</h2>
+      <p>Expected Profit</p>
+    </div>
+  </div>
+  
+  <div class="chart-card">
+    <canvas baseChart
+      [data]="weeklyChartData"
+      [options]="weeklyChartOptions"
+      chartType="line">
+    </canvas>
+  </div>  
+</div>

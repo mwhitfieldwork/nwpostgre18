@@ -1,0 +1,17 @@
+@for(star of stars; track i; let i = $index) {
+    <svg width="21" height="21" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star">
+      <linearGradient [attr.id]="'grad-' + score + '-' + i">
+        <stop offset="0%" [attr.stop-color]="color"></stop>
+        <stop [attr.offset]="star" [attr.stop-color]="color"></stop>
+        <stop [attr.offset]="star" stop-color="#FFFFFF"></stop>
+        <stop offset="100%" stop-color="#FFFFFF"></stop>
+      </linearGradient>
+    
+    <polygon 
+      [attr.fill]="'url(#grad-' + score + '-' + i + ')'"
+      stroke="lightgrey"
+      points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27">
+    </polygon>
+    
+    </svg>
+}
