@@ -1,5 +1,4 @@
 import { Component, computed, effect, inject, OnInit, signal } from '@angular/core';
-import { EmployeesComponent } from "../employees/employees.component";
 import { MatCardModule } from '@angular/material/card';
 import { StockInventoryComponent } from "../products/stock-inventory/stock-inventory.component";
 import { DonutChartComponent } from "./donut-chart/donut-chart.component";
@@ -17,7 +16,6 @@ import { DatePickerFilterComponent } from "../../shared/date-picker-filter/date-
   selector: 'app-dash',
   standalone: true,
   imports: [
-    EmployeesComponent,
     MatCardModule,
     StockInventoryComponent,
     DonutChartComponent,
