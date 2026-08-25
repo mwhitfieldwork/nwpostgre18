@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 
 import { LoginComponent } from './northwind-ui/login/login.component';
 import { DashComponent } from './northwind-ui/dash/dash.component';
-import { EmployeesComponent } from './northwind-ui/employees/employees.component';
 import { StockInventoryComponent } from './northwind-ui/products/stock-inventory/stock-inventory.component';
 import { ProductTableComponent } from './northwind-ui/products/product-table/product-table.component';
 import { ProductTableDetailComponent } from './northwind-ui/products/product-table/product-table-detail/product-table-detail.component';
@@ -23,9 +22,6 @@ export const routes: Routes = [
     component: DashComponent,
     resolve: { data: DashboardResolver }
   },
-
-  // Employees
-  { path: 'work', component: EmployeesComponent },
 
   // Stock
   { path: 'stock', component: StockInventoryComponent },
