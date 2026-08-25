@@ -1,6 +1,5 @@
 import { Component, computed, effect, inject, OnInit, signal } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { StockInventoryComponent } from "../products/stock-inventory/stock-inventory.component";
 import { DonutChartComponent } from "./donut-chart/donut-chart.component";
 import { OrderHistoryComponent } from "../order-history/order-history.component";
 import { UserSessionService } from '../../utilities/services/user-session/user-session.service';
@@ -17,7 +16,6 @@ import { DatePickerFilterComponent } from "../../shared/date-picker-filter/date-
   standalone: true,
   imports: [
     MatCardModule,
-    StockInventoryComponent,
     DonutChartComponent,
     OrderHistoryComponent,
     TooltipDirective,
