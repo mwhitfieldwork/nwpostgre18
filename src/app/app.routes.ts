@@ -6,7 +6,6 @@ import { EmployeesComponent } from './northwind-ui/employees/employees.component
 import { StockInventoryComponent } from './northwind-ui/products/stock-inventory/stock-inventory.component';
 import { ProductTableComponent } from './northwind-ui/products/product-table/product-table.component';
 import { ProductTableDetailComponent } from './northwind-ui/products/product-table/product-table-detail/product-table-detail.component';
-import { TodoComponent } from './northwind-ui/todo/todo.component';
 
 import { Error404Component } from './shared/error/error404/error404.component';
 import { Error500Component } from './shared/error/error500/error500.component';
@@ -30,9 +29,6 @@ export const routes: Routes = [
 
   // Stock
   { path: 'stock', component: StockInventoryComponent },
-
-  // Todo
-  { path: 'todo', component: TodoComponent },
 
   // Products + children
   { 
