@@ -13,21 +13,21 @@ import { DecimalPipe, NgClass } from '@angular/common';
 import { RatingComponent } from '../../shared/rating/rating.component';
 
 @Component({
-  selector: 'app-order-history',
-  standalone: true,
-  imports: [    
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatCheckboxModule,
-    FormsModule,
-    CustomNumberPipe,
-    DecimalPipe,
-    RatingComponent,
-    NgClass
-  ],
-  templateUrl: './order-history.component.html',
-  styleUrl: './order-history.component.scss'
+    selector: 'app-order-history',
+    standalone: true,
+    imports: [
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatCheckboxModule,
+        FormsModule,
+        CustomNumberPipe,
+        DecimalPipe,
+        RatingComponent,
+        NgClass
+    ],
+    templateUrl: './order-history.component.html',
+    styleUrl: './order-history.component.scss'
 })
 export class OrderHistoryComponent implements AfterViewInit {
 

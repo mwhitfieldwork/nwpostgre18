@@ -8,12 +8,12 @@ import { UserSessionService } from '../../utilities/services/user-session/user-s
 import { BasicButtonComponent } from '../../shared/basic-button/basic-button.component';
 
 @Component({
-  selector: 'app-login',
-  standalone: true,
-  imports: [AuthLoginComponent, MatCardModule, BasicButtonComponent],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
-  encapsulation: ViewEncapsulation.None
+    selector: 'app-login',
+    standalone: true,
+    imports: [AuthLoginComponent, MatCardModule, BasicButtonComponent],
+    templateUrl: './login.component.html',
+    styleUrl: './login.component.scss',
+    encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent {
 private _loginService = inject(LoginService)

@@ -6,17 +6,17 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
-  selector: 'app-date-picker-filter',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatNativeDateModule    
-  ],
-  templateUrl: './date-picker-filter.component.html',
-  styleUrl: './date-picker-filter.component.scss'
+    selector: 'app-date-picker-filter',
+    standalone: true,
+    imports: [
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDatepickerModule,
+        MatNativeDateModule
+    ],
+    templateUrl: './date-picker-filter.component.html',
+    styleUrl: './date-picker-filter.component.scss'
 })
 export class DatePickerFilterComponent implements OnInit {
   maxDate: Date = new Date(1998, 11, 31); // December 31, 1998

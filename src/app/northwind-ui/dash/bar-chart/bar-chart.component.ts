@@ -6,11 +6,11 @@ import { Chart, BarController, BarElement, CategoryScale, LinearScale, Tooltip, 
 Chart.register(BarController, BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 @Component({
-  selector: 'app-bar-chart',
-  standalone: true,
-  imports: [BaseChartDirective],
-  templateUrl: './bar-chart.component.html',
-  styleUrl: './bar-chart.component.scss'
+    selector: 'app-bar-chart',
+    standalone: true,
+    imports: [BaseChartDirective],
+    templateUrl: './bar-chart.component.html',
+    styleUrl: './bar-chart.component.scss'
 })
 export class BarChartComponent {
   public weeklyChartData = {

@@ -14,23 +14,23 @@ import { UserSessionService } from './utilities/services/user-session/user-sessi
 import { Visitor } from './utilities/models/visitor.model';
 import { DUMMY_USERS } from './utilities/models/DUMMY_USERS';
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    NavComponent,
-    MatSidenavModule,
-    MatListModule,
-    MatToolbarModule,
-    MatIconModule,
-    RouterLink,
-    DisplayLinkDirective,
-    NgClass,
-    RouterLinkActive,
-    UsersComponent
-],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    standalone: true,
+    imports: [
+        RouterOutlet,
+        NavComponent,
+        MatSidenavModule,
+        MatListModule,
+        MatToolbarModule,
+        MatIconModule,
+        RouterLink,
+        DisplayLinkDirective,
+        NgClass,
+        RouterLinkActive,
+        UsersComponent
+    ],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
   title = 'nwrevised';
