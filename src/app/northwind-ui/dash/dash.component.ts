@@ -12,21 +12,21 @@ import { BarChartComponent } from "./bar-chart/bar-chart.component";
 import { SalesTotalCardsComponent } from "./sales-total-cards/sales-total-cards.component";
 import { DatePickerFilterComponent } from "../../shared/date-picker-filter/date-picker-filter.component";
 @Component({
-  selector: 'app-dash',
-  standalone: true,
-  imports: [
-    MatCardModule,
-    DonutChartComponent,
-    OrderHistoryComponent,
-    TooltipDirective,
-    CardBasicComponent,
-    CurrencyPipe,
-    BarChartComponent,
-    SalesTotalCardsComponent,
-    DatePickerFilterComponent
-],
-  templateUrl: './dash.component.html',
-  styleUrl: './dash.component.scss'
+    selector: 'app-dash',
+    standalone: true,
+    imports: [
+        MatCardModule,
+        DonutChartComponent,
+        OrderHistoryComponent,
+        TooltipDirective,
+        CardBasicComponent,
+        CurrencyPipe,
+        BarChartComponent,
+        SalesTotalCardsComponent,
+        DatePickerFilterComponent
+    ],
+    templateUrl: './dash.component.html',
+    styleUrl: './dash.component.scss'
 })
 export class DashComponent implements OnInit {
   totalOrders:number = 12873;

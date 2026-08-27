@@ -20,20 +20,20 @@ import { combineLatest } from 'rxjs';
  Chart.register(DoughnutController, ArcElement, Tooltip, Legend);
 
 @Component({
-  selector: 'app-donut-chart',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule, 
-    FormsModule, 
-    MatTooltipModule,
-    MatInputModule, 
-    MatFormFieldModule, 
-    MatSelectModule,
-    BaseChartDirective, 
-    NgFor
-  ],
-  templateUrl: './donut-chart.component.html',
-  styleUrl: './donut-chart.component.scss'
+    selector: 'app-donut-chart',
+    standalone: true,
+    imports: [
+        ReactiveFormsModule,
+        FormsModule,
+        MatTooltipModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        BaseChartDirective,
+        NgFor
+    ],
+    templateUrl: './donut-chart.component.html',
+    styleUrl: './donut-chart.component.scss'
 })
 export class DonutChartComponent implements OnInit {
 

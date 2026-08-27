@@ -14,24 +14,24 @@ import { ConfirmDeleteDirective } from '../../../utilities/directives/safe-link/
 
 
 @Component({
-  selector: 'app-product-table',
-  templateUrl: './product-table.component.html',
-  styleUrl: './product-table.component.scss',
-  standalone: true,
-  providers: [
-    ProductsService
-  ],
-  imports: [
-    FormsModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    ReactiveFormsModule,
-    RouterOutlet,
-    RouterLink,
-    ProductTableDetailComponent,
-    ConfirmDeleteDirective
-]
+    selector: 'app-product-table',
+    templateUrl: './product-table.component.html',
+    styleUrl: './product-table.component.scss',
+    providers: [
+        ProductsService
+    ],
+    standalone: true,
+    imports: [
+        FormsModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        ReactiveFormsModule,
+        RouterOutlet,
+        RouterLink,
+        ProductTableDetailComponent,
+        ConfirmDeleteDirective
+    ]
 })
 export class ProductTableComponent implements OnInit, AfterViewInit, OnDestroy {
 

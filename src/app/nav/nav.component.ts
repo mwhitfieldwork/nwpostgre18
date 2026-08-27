@@ -8,15 +8,15 @@ import { DUMMY_USERS } from '../utilities/models/DUMMY_USERS';
 import { Visitor } from '../utilities/models/visitor.model';
 
 @Component({
-  selector: 'app-nav',
-  standalone: true,
-  imports: [
-    RouterLink,
-    SafelinkDirective,
-    UsersComponent
-],
-  templateUrl: './nav.component.html',
-  styleUrl: './nav.component.scss'
+    selector: 'app-nav',
+    standalone: true,
+    imports: [
+        RouterLink,
+        SafelinkDirective,
+        UsersComponent
+    ],
+    templateUrl: './nav.component.html',
+    styleUrl: './nav.component.scss'
 })
 export class NavComponent implements AfterViewInit {
  private  _userSessionService = inject(UserSessionService);

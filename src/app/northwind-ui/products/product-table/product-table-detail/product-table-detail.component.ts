@@ -16,17 +16,18 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
-  selector: 'app-product-table-detail',
-  standalone: true,
-  imports: [
-    FormsModule, 
-    ReactiveFormsModule,
-    MatInputModule, 
-    MatFormFieldModule, 
-    MatSelectModule, 
-    CommonModule],
-  templateUrl: './product-table-detail.component.html',
-  styleUrl: './product-table-detail.component.scss'
+    selector: 'app-product-table-detail',
+    standalone: true,
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        CommonModule
+    ],
+    templateUrl: './product-table-detail.component.html',
+    styleUrl: './product-table-detail.component.scss'
 })
 export class ProductTableDetailComponent implements OnInit{
   productForm!:FormGroup;

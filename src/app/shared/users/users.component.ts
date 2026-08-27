@@ -3,11 +3,11 @@ import {Visitor} from '../../utilities/models/visitor.model';
 import { Authentication } from '../../utilities/models/authentication';
 
 @Component({
-  selector: 'app-users',
-  standalone: true,
-  imports: [],
-  templateUrl: './users.component.html',
-  styleUrl: './users.component.scss'
+    selector: 'app-users',
+    standalone: true,
+    imports: [],
+    templateUrl: './users.component.html',
+    styleUrl: './users.component.scss'
 })
 export class UsersComponent {
 @Input() user: Visitor | undefined;
