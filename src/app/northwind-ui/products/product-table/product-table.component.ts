@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Inject, AfterViewInit, inject, OnDestroy, ContentChild, ElementRef, afterRender, afterNextRender } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject, AfterViewInit, inject, OnDestroy, ContentChild, ElementRef } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Product } from './models/products';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
