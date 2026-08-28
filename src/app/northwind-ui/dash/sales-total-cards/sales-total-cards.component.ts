@@ -1,16 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { DashboardService } from '../../../utilities/services/dashboard/dashboard.service';
 import { SalesTotal } from '../../../utilities/models/salesTotal';
-import { CurrencyPipe, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
     selector: 'app-sales-total-cards',
     standalone: true,
-    imports: [CurrencyPipe,
-        NgSwitch,
-        NgSwitchCase,
-        NgSwitchDefault
-    ],
+    imports: [CurrencyPipe],
     templateUrl: './sales-total-cards.component.html',
     styleUrl: './sales-total-cards.component.scss'
 })
