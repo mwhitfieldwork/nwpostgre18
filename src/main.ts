@@ -1,31 +1,44 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
-import { provideRouter, withDebugTracing } from '@angular/router';
-import { provideHttpClient, withInterceptors } from '@angular/common/http';
+
+import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { ErrorInterceptor } from './app/interceptor/error.interceptor';
+
 import { importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { provideAnimations } from '@angular/platform-browser/animations';
 
-bootstrapApplication(AppComponent, 
-  {providers:[
-  provideZoneChangeDetection(),provideAnimations(),
-  provideHttpClient(
-    withInterceptors([
-      (req, next) => {
-        const interceptor = new ErrorInterceptor();
-        return interceptor.intercept(req, {
-          handle: next
-        });
-      }
-    ])
-  ),
-  importProvidersFrom(MatSnackBarModule),
-    //provideRouter(routes, withDebugTracing()), //see routes in console
-    provideRouter(routes), 
-    provideAnimationsAsync(), provideAnimationsAsync()
-  ]}
-)
-  .catch((err) => console.error(err));
+import { OAuthModule } from 'angular-oauth2-oidc';
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    importProvidersFrom(
+      OAuthModule.forRoot({
+        resourceServer: {
+          allowedUrls: ['https://api.example.com'],
+          sendAccessToken: true
+        }
+      })
+    ),    
+    provideZoneChangeDetection(),
+
+    // HttpClient + your ErrorInterceptor
+    provideHttpClient(
+      withInterceptors([
+        (req, next) => {
+          const interceptor = new ErrorInterceptor();
+          return interceptor.intercept(req, { handle: next });
+        }
+      ])
+    ),
+
+    // Angular Material provider
+    importProvidersFrom(MatSnackBarModule),
+
+    // Router
+    provideRouter(routes),
+  ]
+})
+.catch(err => console.error(err));
