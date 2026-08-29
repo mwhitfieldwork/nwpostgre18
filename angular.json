@@ -109,12 +109,6 @@
             ],
             "scripts": []
           }
-        },
-        "deploy": {
-          "builder": "angular-cli-ghpages:deploy",
-          "options": {
-            "baseHref": "/northwindFE_postgre/"
-          }
         }
       }
     }
