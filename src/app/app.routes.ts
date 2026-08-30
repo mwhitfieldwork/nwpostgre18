@@ -36,6 +36,11 @@ export const routes: Routes = [
   { path: '404', component: Error404Component },
   { path: '500', component: Error500Component },
 
+  {
+    path: 'auth/callback',
+    loadComponent: () => import('./auth-callback/auth-callback.component').then(m => m.AuthCallbackComponent)
+  },
+
   // Wildcard → 404 (NOT dashboard)
   { path: '**', component: Error404Component }
 ];
