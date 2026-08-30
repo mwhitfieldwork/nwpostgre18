@@ -6,6 +6,7 @@ import { LoginService } from '../../utilities/services/login/login.service';
 import { Router } from '@angular/router';
 import { UserSessionService } from '../../utilities/services/user-session/user-session.service';
 import { BasicButtonComponent } from '../../shared/basic-button/basic-button.component';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 @Component({
     selector: 'app-login',
@@ -17,16 +18,32 @@ import { BasicButtonComponent } from '../../shared/basic-button/basic-button.com
 })
 export class LoginComponent {
 private _loginService = inject(LoginService)
+private _oauthService = inject(OAuthService)
 private _userSessionService = inject(UserSessionService)
 private router = inject(Router)
 signInErrorMessage = '';
+userProfile:any;
 
-constructor() {
-  console.log('UserSessionService instance created');
-}
+  constructor() {
+    console.log('UserSessionService instance created');
+  }
+
+  ngOnInit() {
+  }
+
+  get isLoggedIn(){
+    return !!this._loginService.identityClaims
+  }
+
+  login(){
+    this._loginService.login();
+  }
+
+   logout(){
+    this._loginService.logout();
+  } 
 
 
-  
   createUser($event:Authentication){
     this._loginService.createUser($event).subscribe((response) => {
       console.log(response);
