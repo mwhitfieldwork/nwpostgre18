@@ -3,4 +3,5 @@ export interface User {
     userName: string;
     password: string;
     admin: boolean;
+    picture?: string;
 }
