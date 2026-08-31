@@ -4,4 +4,5 @@ passowrd: string;
 admin: boolean;
 firstName:string;
 occupation:string
+picture?: string;
 }

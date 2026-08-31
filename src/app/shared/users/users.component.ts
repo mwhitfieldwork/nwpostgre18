@@ -15,7 +15,7 @@ export class UsersComponent {
 @Output() select = new EventEmitter<string>();
 
 get imagePath() {
-  return `assets/users/${this.user?.avatar}`;
+  return this.signInUser?.picture || `assets/users/${this.user?.avatar}`;
 }
 
 onSelectUser(selectedUser:string) {
