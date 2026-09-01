@@ -2,7 +2,7 @@ export interface Authentication {
 userName: string;
 passowrd: string;
 admin: boolean;
-firstName:string;
+firstname:string;
 occupation:string
 picture?: string;
 }

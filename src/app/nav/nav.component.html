@@ -1,12 +1,15 @@
 @if(user){
-<section id="navigation" >
+<section id="navigation">
+    <div>
+        <img src="assets/nw-logo.png" alt="logo" class="logo"/>
+    </div>
     <nav class="navbar">
         <div class="user-icon">
             <app-users [user]="getVisitor()" [signInUser]="user" />
         </div>
         <ul>
             <li>
-                <span class="user">Welcome, {{user.userName}}</span>          
+                <span class="user">Welcome, {{user.firstname}}</span>          
                 <a href="#" (click)="Logout()">Logout</a>
             </li>
         </ul>

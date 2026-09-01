@@ -45,8 +45,7 @@ getUser(){
   if(this.userId) {
     this._userSessionService.getUser(this.userId).subscribe((response) => {
       this.user = response;
-      this.getVisitor();
-      console.log(this.getVisitor());
+      console.log(this.user);
     });
   }
 }
