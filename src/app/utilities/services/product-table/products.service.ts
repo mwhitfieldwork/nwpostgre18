@@ -20,7 +20,7 @@ const httpOptions = {
 export class ProductsService {
 private _http = inject(HttpClient);
 
-  url:string = environment.apiUrl;
+  url:string = environment.apiUrl + '/api';
   errorMessage:any;
 
   getProducts(): Observable<Product[]> {
