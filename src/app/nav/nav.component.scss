@@ -5,9 +5,17 @@
     color:#fff;
     height:50px;
     display: flex;
+    align-items: center;
 
     .user {
         color:#fff;
+    }
+
+    .logo {
+        width:100px;
+        margin-left:50px;
+        display:block;
+        vertical-align: middle;
     }
 
     & .user-icon app-users ::ng-deep button {
