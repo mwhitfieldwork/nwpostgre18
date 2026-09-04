@@ -27,7 +27,12 @@
           <i class="fa fa-archive"></i>
           <span class="label">Product</span>
         </a>
-  
+
+         <a mat-list-item routerLink="/territories" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <i class="fa fa-archive"></i>
+          <span class="label">Territories</span>
+        </a> 
+
         <a mat-list-item href="https://mwhitfieldwork.github.io/portfolio/#home" routerLinkActive="active" *appDisplayLink>
             <i class="fa fa-briefcase"></i>
             <span class="label">Portfolio</span>
