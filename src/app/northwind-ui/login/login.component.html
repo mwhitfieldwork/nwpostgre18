@@ -7,9 +7,9 @@
         <article>
             <div class="google-login">
                 @if(isLoggedIn){
-                    <button (click)="logout()">Logout with Google</button>
+                    <button (click)="logout()"><img src="assets/google-logo.png" alt="Google Icon"/> Logout with Google</button>
                 }@else{
-                    <button (click)="login()">Login with Google</button>
+                    <span (click)="login()"><img src="assets/google-logo.png" alt="Google Icon"/> Login with Google</span>
                 }
             </div>
             <app-auth-form (submitted)="verifyUser($event)" [signInErrorMessage]="signInErrorMessage">

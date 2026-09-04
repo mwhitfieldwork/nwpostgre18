@@ -45,15 +45,25 @@ mat-card {
         padding: 2%;
         border-right: 1px solid #ccc;
 
-        button {
+        span {
             display: block;
             margin: auto;
-            background:#4c1d95;
-            color:#fff;
-            border-radius: 8px;
-            width:65%;
+            border: 1px dotted #ccc;
+            background:#fff;
+            color:#232222;
+            width:100%;
             padding:15px;
             font-size: 1rem;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            img{
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+            }
         }
     }    
 }

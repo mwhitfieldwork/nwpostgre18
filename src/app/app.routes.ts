@@ -7,7 +7,7 @@ import { ProductTableDetailComponent } from './northwind-ui/products/product-tab
 
 import { Error404Component } from './shared/error/error404/error404.component';
 import { Error500Component } from './shared/error/error500/error500.component';
-
+import { TerritoryMapComponent } from './northwind-ui/territory-map/territory-map.component';
 import { DashboardResolver } from './utilities/resolvers/dashboard-resolver.resolver';
 
 export const routes: Routes = [
@@ -21,7 +21,10 @@ export const routes: Routes = [
     component: DashComponent,
     resolve: { data: DashboardResolver }
   },
-
+  { 
+    path: 'territories', 
+    component: TerritoryMapComponent
+  },
   // Products + children
   { 
     path: 'products', 
