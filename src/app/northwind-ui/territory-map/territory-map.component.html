@@ -1,4 +1,27 @@
+  <h2>Employee Territories </h2>
 <section class="territory-map">
+  <div class="employee-table-container">
+    <table class="employee-table">
+      <thead>
+        <tr>
+          <th class="col-photo"></th>
+          <th>Employee</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (employee of employees; track employee.employeeId) {
+          <tr (click)="focusEmployeeOnMap(employee.employeeId)"
+    [class.selected]="employee.employeeId === selectedEmployeeId">
+            <td class="col-photo">
+              <img [src]="employee.photoPath" [alt]="employee.firstName" width="30" height="30" style="border-radius:50%;"/>
+            </td>
+            <td>{{ employee.firstName }} {{ employee.lastName }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
   <google-map [center]="center" [zoom]="zoom" [options]="mapOptions" height="600px" width="100%">
     @for (marker of (markers$ | async) ?? []; track marker.territoryId) {
       <map-marker
