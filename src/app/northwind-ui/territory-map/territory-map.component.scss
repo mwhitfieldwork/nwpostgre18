@@ -1,0 +1,80 @@
+  h2 {
+    margin: 50px 0 16px 0;
+    padding: 16px 24px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a1a2e;
+  }
+
+.territory-map {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+tr {
+  :hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+  }
+}
+
+.employee-table-container {
+  width: 30%;
+  height: 90vh;          /* use 40% instead only if the parent has its own fixed height */
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.employee-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.employee-table thead th {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  text-align: left;
+  padding: 16px 24px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #8a8f98;
+  border-bottom: 1px solid #eef0f2;
+  z-index: 1;
+}
+
+.employee-table tbody td {
+  padding: 14px 24px;
+  border-bottom: 1px solid #eef0f2;
+  color: #1a1a2e;
+  font-size: 0.95rem;
+  vertical-align: middle;
+}
+
+.employee-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.employee-table tbody tr:hover {
+  background: #fafbfc;
+}
+
+.employee-table .col-photo {
+  width: 66px;
+}
+
+.map-container {           /* the flex item wrapping <google-map> */
+  display: flex;
+  flex: 1;                 /* let it grow/shrink normally */
+  min-height: 0;           /* stop it collapsing to content size */
+  height: 400px;           /* or whatever real height you want */
+}
+
+google-map {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

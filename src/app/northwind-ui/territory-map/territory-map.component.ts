@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ViewChild } from '@angular/core';
 import { Observable, map, tap } from 'rxjs';
 import { GoogleMap, MapMarker, MapInfoWindow } from '@angular/google-maps';
 import { EmployeeTerritoryMap } from '../../utilities/models/employee-territory-map';
@@ -6,6 +6,7 @@ import { EmployeeTerritoryMapService } from '../../utilities/services/employee-t
 import { AsyncPipe } from '@angular/common';
 
 interface TerritoryMarker {
+  employeeId: number | null;
   territoryId: string;
   city: string;
   regionDescription: string;
@@ -13,6 +14,14 @@ interface TerritoryMarker {
   options: google.maps.MarkerOptions;
   employeeName: string | null;
   employeeTitle: string | null;
+}
+
+interface Employee {
+  employeeId: number | null;
+  firstName: string | null;
+  lastName: string | null;
+  title: string | null;
+  photoPath: string | null;
 }
 
 const REGION_COLORS: Record<number, string> = {
@@ -36,6 +45,10 @@ export class TerritoryMapComponent {
   zoom = 4;
 
   selectedMarker: TerritoryMarker | null = null;
+  employees: Employee[] = [];
+  @ViewChild(GoogleMap) map!: GoogleMap;
+  selectedEmployeeId: number | null = null;
+  markers: TerritoryMarker[] = [];
 
   mapOptions: google.maps.MapOptions = {
     styles: [
@@ -103,38 +116,67 @@ private computeCenterAndZoom(markers: TerritoryMarker[]): { center: google.maps.
     info.open(markerRef);
   }
 
-  private buildMarkers(groups: EmployeeTerritoryMap[]): TerritoryMarker[] {
-    const markers: TerritoryMarker[] = [];
+private buildMarkers(groups: EmployeeTerritoryMap[]): TerritoryMarker[] {
+  const markers: TerritoryMarker[] = [];
 
-    for (const group of groups) {
-      for (const t of group.territories) {
-        if (t.latitude == null || t.longitude == null) {
-          continue;
-        }
+  for (const group of groups) {
+    for (const t of group.territories) {
+      if (t.latitude == null || t.longitude == null) continue;
 
-        const color = group.employeeId ? (REGION_COLORS[t.regionId] ?? '#333333') : UNASSIGNED_COLOR;
+      const color = group.employeeId ? (REGION_COLORS[t.regionId] ?? '#333333') : UNASSIGNED_COLOR;
 
-        markers.push({
-          territoryId: t.territoryId,
-          city: t.territoryDescription,
-          regionDescription: t.regionDescription,
-          position: { lat: t.latitude, lng: t.longitude },
-          options: {
-            icon: {
-              path: google.maps.SymbolPath.CIRCLE,
-              fillColor: color,
-              fillOpacity: 0.9,
-              strokeColor: '#ffffff',
-              strokeWeight: 2,
-              scale: 8
-            }
-          },
-          employeeName: group.employeeId ? `${group.firstName} ${group.lastName}` : null,
-          employeeTitle: group.title
-        });
-      }
+      markers.push({
+        employeeId: group.employeeId,
+        territoryId: t.territoryId,
+        city: t.territoryDescription,
+        regionDescription: t.regionDescription,
+        position: { lat: t.latitude, lng: t.longitude },
+        options: {
+          icon: {
+            path: google.maps.SymbolPath.CIRCLE,
+            fillColor: color,
+            fillOpacity: 0.9,
+            strokeColor: '#ffffff',
+            strokeWeight: 2,
+            scale: 8
+          }
+        },
+        employeeName: group.employeeId ? `${group.firstName} ${group.lastName}` : null,
+        employeeTitle: group.title
+      });
     }
-
-    return markers;
   }
+
+  this.markers = markers;   // replace, never append
+  this.buildEmployeesTable(groups);
+  return this.markers;
+}
+
+
+  private buildEmployeesTable(groups: EmployeeTerritoryMap[]): void {
+    this.employees = groups.map(group => ({
+      employeeId: group.employeeId,
+      firstName: group.firstName,
+      lastName: group.lastName,
+      title: group.title,
+      photoPath: group.photoPath
+    }));
+    
+  }
+
+  focusEmployeeOnMap(employeeId: number| null): void {
+  this.selectedEmployeeId = employeeId;
+
+  const employeeMarkers = this.markers.filter(m => m.employeeId === employeeId);
+  if (!employeeMarkers.length || !this.map?.googleMap) return;
+
+  if (employeeMarkers.length === 1) {
+    this.map.googleMap.panTo(employeeMarkers[0].position);
+    this.map.googleMap.setZoom(12);
+  } else {
+    const bounds = new google.maps.LatLngBounds();
+    employeeMarkers.forEach(m => bounds.extend(m.position));
+    this.map.googleMap.fitBounds(bounds);
+  }
+}
 }
