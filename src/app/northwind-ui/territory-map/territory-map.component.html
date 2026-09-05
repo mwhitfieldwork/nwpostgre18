@@ -1,7 +1,26 @@
 <section class="territory-map">
-  @if (employeeGroups$ | async; as employeeGroups) {
-    <p>Loaded {{ employeeGroups.length }} employee groups.</p>
-  } @else {
-    <p>Loading...</p>
-  }
+  <google-map [center]="center" [zoom]="zoom" [options]="mapOptions" height="600px" width="100%">
+    @for (marker of (markers$ | async) ?? []; track marker.territoryId) {
+      <map-marker
+        #markerRef="mapMarker"
+        [position]="marker.position"
+        [options]="marker.options"
+        (mapClick)="onMarkerClick(marker, markerRef, info)">
+      </map-marker>
+    }
+    <map-info-window #info="mapInfoWindow">
+      @if (selectedMarker) {
+        <div class="info-window">
+          <strong>{{ selectedMarker.city }}</strong><br />
+          Region: {{ selectedMarker.regionDescription }}<br />
+          @if (selectedMarker.employeeName) {
+            {{ selectedMarker.employeeName }}<br />
+            <span>{{ selectedMarker.employeeTitle }}</span>
+          } @else {
+            <em>Unassigned</em>
+          }
+        </div>
+      }
+    </map-info-window>
+  </google-map>
 </section>
